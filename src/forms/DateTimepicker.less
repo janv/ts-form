@@ -1,0 +1,101 @@
+@import '../../stylesheets/_constants.less';
+@import '../../stylesheets/_mixins.less';
+
+.dateTimepicker {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  label:first-child {
+    width: 100%;
+  }
+}
+
+/* Add a wrapper around the Datepicker to limit the width. Because className applies to the input only
+and the react-datepicker min-width styling breaks the layout we need to work with :global */
+.datePickerWrapper {
+  width: 60%;
+  :global {
+    .react-datepicker__input-container {
+      min-width: 100%;
+    }
+    .react-datepicker-popper {
+      width: 243px;
+    }
+  }
+}
+
+/* Style the DatetTimepicker date input */
+.datePicker {
+  background-clip: padding-box;
+  border-radius: @border-radius 0 0 @border-radius;
+  border-right-style: dashed;
+  border-right-color: rgba(0, 0, 0, 0);
+  width: 100%;
+}
+.reset {
+  color: @lighter-grey;
+  font-weight: bold;
+  line-height: @input-height;
+  position: absolute;
+  right: @tiny-spacing;
+}
+
+.timePicker {
+  width: 40%;
+  /* Need to use :global because className applies to the input wrapper only */
+  :global {
+    .TimeInput-input {
+      border: @border;
+      border-radius: 0 @border-radius @border-radius 0;
+      border-left-style: dashed;
+      color: @copy-color;
+      height: @input-height;
+      margin-left: -1px;
+      padding: @tiny-spacing @small-spacing;
+      transition: border @transition-timing;
+      width: ~"calc(100% + 1px)";
+      &:hover {
+        border-color: @black;
+      }
+      &:focus {
+        border-color: @brand-accent;
+        outline: none;
+      }
+    }
+  }
+}
+.timePickerDisabled {
+  pointer-events: none;
+  :global {
+    .TimeInput-input {
+      background: @grey-bg;
+      border: none;
+      color: @lighter-grey;
+    }
+  }
+}
+
+/* Use this to add a proper left border to .timePicker for when it's used standalone*/
+.timePickerLeftBorder {
+  :global {
+    .TimeInput-input {
+      border-top-left-radius: @border-radius;
+      border-bottom-left-radius: @border-radius;
+      border-left: @border;
+    }
+  }
+}
+
+/* Use this to override the width restriction in .timePicker*/
+.timePickerFullWidth {
+  width: 100%;
+}
+
+/* value is invalid */
+:global {
+  .dateTimeInvalid .TimeInput-input {
+    background: @error-bg;
+    border-color: @error-color;
+  }
+}

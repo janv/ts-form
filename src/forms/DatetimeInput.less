@@ -1,0 +1,24 @@
+@import '../../stylesheets/_constants.less';
+
+.dateWrapper {
+  composes: calendarWrapper from './Datepicker.less';
+
+  :global .rdtPicker {
+    // override fixed width in react-datetime css
+    width: auto;
+    min-width: 20rem;
+    box-shadow: 0 0 1px 0 @grey;
+
+    .rdtDay {
+      cursor: pointer;
+    }
+
+    .rdtTimeToggle {
+      background-color: @grey-bg;
+    }
+  }
+}
+
+.invalid {
+  border: @border-solid @error-color;
+}

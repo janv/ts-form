@@ -1,0 +1,18 @@
+# Form components TODO
+
+- Form submission
+- How does reprovisioning look?
+- API Congruency with Redux-Form
+
+- initialState on Form, also allow configuring direct vs. buffered mode
+  Maybe initialState is just something to put into Form, but not into Context
+- Form level validation
+- Async validation
+- ArrayEditor
+
+- Transformer need onChange callback that only fires when the modelvalue has changed
+- ContextProvider should expose reset on context?
+- Custom Equality function for Transformer for checking modelvalue Equality
+- Path normalization for ContextProvider
+- Make a new version of the makeField decorator
+- Move Transformer into Context

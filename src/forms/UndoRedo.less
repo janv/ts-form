@@ -1,0 +1,48 @@
+@import '../../stylesheets/_constants.less';
+@import '../../stylesheets/_mixins.less';
+
+.undoRedo {
+  display: inline-block;
+  margin-right: @base-spacing;
+  padding: 0 @small-spacing;
+}
+
+.button {
+  .antialiasedText;
+  user-select: none;
+  background-color: @button-bg;
+  color: @button-color;
+  font-size: @large-font-size;
+  font-family: @heading-font;
+  font-weight: bold;
+  line-height: 0;
+  text-align: center;
+  height: @input-height;
+  padding: 0 @small-spacing;
+  outline: none;
+  border: @border-solid @button-color;
+  border-radius: @border-radius;
+  text-transform: capitalize;
+  transition: @transition-color-bg;
+
+  + .button {
+    margin-left: @small-spacing;
+  }
+
+  &:hover {
+    background-color: @button-hover-bg;
+    color: @button-hover-color;
+  }
+
+  &:disabled {
+    .disabled;
+  }
+}
+
+.disabled,
+.disabled:hover {
+  background-color: @button-disabled-bg;
+  border-color: @button-disabled-bg;
+  color: @button-disabled-color;
+  cursor: default;
+}

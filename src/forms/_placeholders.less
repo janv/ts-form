@@ -1,0 +1,41 @@
+.placeholderFont {
+  color: @placeholder-color;
+  font-family: @heading-font;
+  font-size: @small-font-size;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  top: -1px;
+  transition: color @transition-timing;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  .placeholderFont;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  .placeholderFont;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  .placeholderFont;
+}
+:-moz-placeholder { /* Firefox 18- */
+  .placeholderFont;
+}
+
+input:hover::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  .placeholderFont;
+  color: @darker-grey;
+}
+
+input:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  .placeholderFont;
+  color: @lighter-grey;
+}
+
+input:disabled:hover::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  .placeholderFont;
+}
+
+input:disabled:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  .placeholderFont;
+}
